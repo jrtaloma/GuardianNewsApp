@@ -5,6 +5,7 @@ Project for Mobile and Cloud Computing's Course 2020-2021 at Sapienza Universit√
 ## Abstract
 Guardian News App is an Android mobile application for browsing and searching [The Guardian](https://www.theguardian.com/international)'s news about politics, business and sport, saving articles in a list of favorites and sharing them with other users. A Google account is required to interact with the application (Android Lollipop 5.0 at least).
 
+
 ## Tools
 * Project written in Kotlin on [Android Studio](https://developer.android.com/studio)
 * [Google Sign-In](https://developers.google.com/identity/sign-in/android/sign-in) for authentication
@@ -13,4 +14,30 @@ Guardian News App is an Android mobile application for browsing and searching [T
 * My own RESTful Web Service with SQLite database running on [PythonAnywhere](https://jrtaloma.pythonanywhere.com/) for checking, inserting and delivering contents
 * [Firebase Realtime Database](https://firebase.google.com/docs/database/android/start) for instantly sharing contents among users
 
+
 ## Some application screens
+
+### Login screen
+With a random portrait or landscape wallpaper (depending on the smartphone's orientation).
+
+<img src="https://github.com/jrtaloma/GuardianNewsApp/blob/main/screens/login.jpg" width="200">
+
+
+### Homepage
+From left to right: politics, business, sport, favorites, share. Search bar for specific keyword and floating button to load more (and older) results.
+
+The user can save an item from politics, business, sport and share in favorites by long clicking it, as well as for deleting it.
+
+<img src="https://github.com/jrtaloma/GuardianNewsApp/blob/main/screens/homepage.jpg" width="200">
+
+
+### Webpage
+Click an item in the homepage, read the article and share it by inserting the email of a subscribed user.
+
+<img src="https://github.com/jrtaloma/GuardianNewsApp/blob/main/screens/webpage.jpg" width="200">
+
+
+### Notification
+The receiver will find a new item on top of the share list.
+
+<img src="https://github.com/jrtaloma/GuardianNewsApp/blob/main/screens/notification.jpg" width="200">

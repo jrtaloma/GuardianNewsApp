@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_favorites">
+
+    <fragment
+        android:id="@+id/navigation_politics"
+        android:name="it.sapienza.guardiannewsapp.ui.politics.PoliticsFragment"
+        android:label="@string/title_politics"
+        tools:layout="@layout/fragment_politics" />
+
+    <fragment
+        android:id="@+id/navigation_business"
+        android:name="it.sapienza.guardiannewsapp.ui.business.BusinessFragment"
+        android:label="@string/title_business"
+        tools:layout="@layout/fragment_business" />
+
+    <fragment
+        android:id="@+id/navigation_sport"
+        android:name="it.sapienza.guardiannewsapp.ui.sport.SportFragment"
+        android:label="@string/title_sport"
+        tools:layout="@layout/fragment_sport" />
+
+    <fragment
+        android:id="@+id/navigation_favorites"
+        android:name="it.sapienza.guardiannewsapp.ui.favorites.FavoritesFragment"
+        android:label="@string/title_favorites"
+        tools:layout="@layout/fragment_favorites" />
+
+    <fragment
+        android:id="@+id/navigation_share"
+        android:name="it.sapienza.guardiannewsapp.ui.share.ShareFragment"
+        android:label="@string/title_share"
+        tools:layout="@layout/fragment_share" />
+</navigation>

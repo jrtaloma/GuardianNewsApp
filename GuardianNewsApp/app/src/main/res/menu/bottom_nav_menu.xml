@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_politics"
+        android:icon="@drawable/politics_selector"
+        android:title="@string/title_politics" />
+
+    <item
+        android:id="@+id/navigation_business"
+        android:icon="@drawable/business_selector"
+        android:title="@string/title_business" />
+
+    <item
+        android:id="@+id/navigation_sport"
+        android:icon="@drawable/sport_selector"
+        android:title="@string/title_sport" />
+
+    <item
+        android:id="@+id/navigation_favorites"
+        android:icon="@drawable/favorites_selector"
+        android:title="@string/title_favorites" />
+
+    <item
+        android:id="@+id/navigation_share"
+        android:icon="@drawable/share_selector"
+        android:title="@string/title_share" />
+</menu>

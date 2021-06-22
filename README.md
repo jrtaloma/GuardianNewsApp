@@ -3,7 +3,7 @@ Project for Mobile and Cloud Computing's Course 2020-2021 at Sapienza Universit√
 
 
 ## Abstract
-Guardian News App is an Android mobile application for browsing and searching [The Guardian](https://www.theguardian.com/international)'s news about politics, business and sport, saving articles in a list of favorites and sharing them with other users. A Google account is required to interact with the application (Android Lollipop 5.0 at least).
+Guardian News App is an Android mobile application for browsing and searching [The Guardian](https://www.theguardian.com/international)'s news about Formula One, tennis and cycling, saving articles in a list of favorites and sharing them with other users. A Google account is required to interact with the application (Android Lollipop 5.0 at least).
 
 
 ## Tools
@@ -24,9 +24,9 @@ With a random portrait or landscape wallpaper (depending on the smartphone's ori
 
 
 ### Homepage
-From left to right: politics, business, sport, favorites, share. Search bar for specific keyword and floating button to load more (and older) results.
+From left to right: Formula 1, Tennis, Cycling, Favorites, Share. Search bar for specific keyword and floating button to load more (and older) results.
 
-The user can save an item from politics, business, sport and share in favorites by long clicking it, as well as for deleting it.
+The user can save an item from Formula 1, Tennis, Cycling and Share in Favorites by long clicking it, as well as for deleting it.
 
 <img src="https://github.com/jrtaloma/GuardianNewsApp/blob/main/screens/homepage.jpg" width="200">
 

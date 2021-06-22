@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 // https://oozou.com/blog/a-better-way-to-handle-click-action-in-a-recyclerview-item-60
 
-class NewsAdapter(private val section: String, onItemClicked: (News) -> Unit, onItemLongClicked: (News) -> Boolean) : RecyclerView.Adapter<NewsViewHolder>() {
+class NewsAdapter(private val tag: String, onItemClicked: (News) -> Unit, onItemLongClicked: (News) -> Boolean) : RecyclerView.Adapter<NewsViewHolder>() {
 
     private var onItemClicked = onItemClicked
     private var onItemLongClicked = onItemLongClicked
@@ -21,7 +21,7 @@ class NewsAdapter(private val section: String, onItemClicked: (News) -> Unit, on
     }
 
     init {
-        repository.getAll(section)
+        repository.getAll(tag)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
@@ -50,15 +50,15 @@ class NewsAdapter(private val section: String, onItemClicked: (News) -> Unit, on
     }
 
     fun getAll(): Boolean {
-        return repository.getAll(section)
+        return repository.getAll(tag)
     }
 
     fun search(query: String): Boolean {
-        return repository.search(section, query)
+        return repository.search(tag, query)
     }
 
     fun getAllNext(): Boolean {
-        return repository.getAllNext(section)
+        return repository.getAllNext(tag)
     }
 
 }

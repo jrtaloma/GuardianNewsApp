@@ -24,6 +24,7 @@ import java.nio.charset.Charset
 
 
 // https://developer.android.com/codelabs/advanced-android-kotlin-training-custom-views#3
+// https://unsplash.com/collections/1005040/sport
 
 class WallpaperView @JvmOverloads constructor(
     context: Context,
@@ -114,9 +115,9 @@ class WallpaperView @JvmOverloads constructor(
         val sb = StringBuilder()
         val inputStream: InputStream
         if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT)
-            inputStream = URL("https://api.unsplash.com/photos/random?collections=1065976&orientation=portrait&client_id="+UNSPLASH_ACCESS_KEY).content as InputStream
+            inputStream = URL("https://api.unsplash.com/photos/random?collections=1005040&orientation=portrait&client_id="+UNSPLASH_ACCESS_KEY).content as InputStream
         else
-            inputStream = URL("https://api.unsplash.com/photos/random?collections=1065976&orientation=landscape&client_id="+UNSPLASH_ACCESS_KEY).content as InputStream
+            inputStream = URL("https://api.unsplash.com/photos/random?collections=1005040&orientation=landscape&client_id="+UNSPLASH_ACCESS_KEY).content as InputStream
         val bufferedReader = BufferedReader(InputStreamReader(inputStream, Charset.forName("UTF-8")))
         var line: String? = bufferedReader.readLine()
         while (line != null) {

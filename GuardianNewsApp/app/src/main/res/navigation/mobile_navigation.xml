@@ -6,22 +6,22 @@
     app:startDestination="@id/navigation_favorites">
 
     <fragment
-        android:id="@+id/navigation_politics"
-        android:name="it.sapienza.guardiannewsapp.ui.politics.PoliticsFragment"
-        android:label="@string/title_politics"
-        tools:layout="@layout/fragment_politics" />
+        android:id="@+id/navigation_formulaone"
+        android:name="it.sapienza.guardiannewsapp.ui.formulaone.FormulaOneFragment"
+        android:label="@string/title_formulaone"
+        tools:layout="@layout/fragment_formulaone" />
 
     <fragment
-        android:id="@+id/navigation_business"
-        android:name="it.sapienza.guardiannewsapp.ui.business.BusinessFragment"
-        android:label="@string/title_business"
-        tools:layout="@layout/fragment_business" />
+        android:id="@+id/navigation_tennis"
+        android:name="it.sapienza.guardiannewsapp.ui.tennis.TennisFragment"
+        android:label="@string/title_tennis"
+        tools:layout="@layout/fragment_tennis" />
 
     <fragment
-        android:id="@+id/navigation_sport"
-        android:name="it.sapienza.guardiannewsapp.ui.sport.SportFragment"
-        android:label="@string/title_sport"
-        tools:layout="@layout/fragment_sport" />
+        android:id="@+id/navigation_cycling"
+        android:name="it.sapienza.guardiannewsapp.ui.cycling.CyclingFragment"
+        android:label="@string/title_cycling"
+        tools:layout="@layout/fragment_cycling" />
 
     <fragment
         android:id="@+id/navigation_favorites"

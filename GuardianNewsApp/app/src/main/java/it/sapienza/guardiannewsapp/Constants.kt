@@ -1,8 +1,8 @@
 package it.sapienza.guardiannewsapp
 
-const val POLITICS = "politics"
-const val BUSINESS = "business"
-const val SPORT = "sport"
+const val FORMULA_ONE = "sport/formulaone"
+const val TENNIS = "sport/tennis"
+const val CYCLING = "sport/cycling"
 
 const val GOOGLE_ID_TOKEN = "google_id_token"
 const val ACCOUNT_EMAIL = "email"

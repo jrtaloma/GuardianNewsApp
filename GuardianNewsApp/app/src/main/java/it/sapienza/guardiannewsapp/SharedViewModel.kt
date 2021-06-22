@@ -9,9 +9,9 @@ class SharedViewModel : ViewModel() {
     var accountName: String = ""
     var googleIdToken: String = ""
     var googleEmail: String = ""
-    var politicsNewsAdapter: NewsAdapter? = null
-    var businessNewsAdapter: NewsAdapter? = null
-    var sportNewsAdapter: NewsAdapter? = null
+    var formulaOneNewsAdapter: NewsAdapter? = null
+    var tennisNewsAdapter: NewsAdapter? = null
+    var cyclingNewsAdapter: NewsAdapter? = null
     var favoritesAdapter: FavoritesAdapter? = null
     var shareAdapter: ShareAdapter? = null
 }

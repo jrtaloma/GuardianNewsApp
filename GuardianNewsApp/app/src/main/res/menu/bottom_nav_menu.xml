@@ -2,19 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_politics"
-        android:icon="@drawable/politics_selector"
-        android:title="@string/title_politics" />
+        android:id="@+id/navigation_formulaone"
+        android:icon="@drawable/formulaone_selector"
+        android:title="@string/title_formulaone" />
 
     <item
-        android:id="@+id/navigation_business"
-        android:icon="@drawable/business_selector"
-        android:title="@string/title_business" />
+        android:id="@+id/navigation_tennis"
+        android:icon="@drawable/tennis_selector"
+        android:title="@string/title_tennis" />
 
     <item
-        android:id="@+id/navigation_sport"
-        android:icon="@drawable/sport_selector"
-        android:title="@string/title_sport" />
+        android:id="@+id/navigation_cycling"
+        android:icon="@drawable/cycling_selector"
+        android:title="@string/title_cycling" />
 
     <item
         android:id="@+id/navigation_favorites"

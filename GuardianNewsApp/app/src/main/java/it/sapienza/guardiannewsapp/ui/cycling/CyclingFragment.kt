@@ -1,4 +1,4 @@
-package it.sapienza.guardiannewsapp.ui.sport
+package it.sapienza.guardiannewsapp.ui.cycling
 
 import android.content.Intent
 import android.os.Bundle
@@ -16,7 +16,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import it.sapienza.guardiannewsapp.*
 import it.sapienza.guardiannewsapp.news.News
 import it.sapienza.guardiannewsapp.news.NewsAdapter
-import kotlinx.android.synthetic.main.fragment_sport.*
+import kotlinx.android.synthetic.main.fragment_cycling.*
 
 // https://guides.codepath.com/android/using-the-recyclerview
 // https://www.geeksforgeeks.org/how-to-implement-swipe-down-to-refresh-in-android-using-android-studio/
@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.fragment_sport.*
 // https://medium.com/androiddevelopers/viewmodels-a-simple-example-ed5ac416317e
 // https://betterprogramming.pub/everything-to-understand-about-viewmodel-400e8e637a58
 
-class SportFragment : Fragment() {
+class CyclingFragment : Fragment() {
 
     private lateinit var googleIdToken: String
     private lateinit var googleEmail: String
@@ -45,7 +45,7 @@ class SportFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_sport, container, false)
+        return inflater.inflate(R.layout.fragment_cycling, container, false)
     }
 
     // populate the views now that the layout has been inflated
@@ -57,17 +57,17 @@ class SportFragment : Fragment() {
         googleIdToken = viewModel.googleIdToken
         googleEmail = viewModel.googleEmail
 
-        if (viewModel.sportNewsAdapter != null) {
+        if (viewModel.cyclingNewsAdapter != null) {
             Log.i("info", "Getting NewsAdapter from SharedViewModel")
-            adp = viewModel.sportNewsAdapter!!
+            adp = viewModel.cyclingNewsAdapter!!
             adp.setOnItemClicked { loadWebPage(it) }
             adp.setOnItemLongClicked { createFavorite(it) }
         } else {
-            adp = NewsAdapter(SPORT, { loadWebPage(it) }, { createFavorite(it) } )
-            viewModel.sportNewsAdapter = adp
+            adp = NewsAdapter(CYCLING, { loadWebPage(it) }, { createFavorite(it) } )
+            viewModel.cyclingNewsAdapter = adp
         }
 
-        sport_list_recycler_view.apply {
+        cycling_list_recycler_view.apply {
             // set a LinearLayoutManager to position items
             layoutManager = LinearLayoutManager(activity)
             // set the custom adapter to populate items
@@ -77,11 +77,11 @@ class SportFragment : Fragment() {
         }
 
         // set refresh event listener
-        swipeRefreshLayout = view.findViewById(R.id.sport_refresh_layout)
+        swipeRefreshLayout = view.findViewById(R.id.cycling_refresh_layout)
         swipeRefreshLayout.setOnRefreshListener { refreshContent() }
 
         // set search event listener
-        sport_search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        cycling_search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 searchContent(query!!)
                 return false
@@ -92,26 +92,26 @@ class SportFragment : Fragment() {
         })
 
         // set floating action button listener
-        sport_floatingActionButton.setOnClickListener {
+        cycling_floatingActionButton.setOnClickListener {
             loadNextContent()
         }
     }
 
     private fun refreshContent() {
         adp.getAll()
-        viewModel.sportNewsAdapter = adp
+        viewModel.cyclingNewsAdapter = adp
         swipeRefreshLayout.isRefreshing = false
     }
 
     private fun searchContent(query: String) {
         adp.search(query)
-        viewModel.sportNewsAdapter = adp
+        viewModel.cyclingNewsAdapter = adp
         Toast.makeText(activity, "Found results", Toast.LENGTH_SHORT).show()
     }
 
     private fun loadNextContent() {
         adp.getAllNext()
-        viewModel.sportNewsAdapter = adp
+        viewModel.cyclingNewsAdapter = adp
         Toast.makeText(activity, "More results", Toast.LENGTH_SHORT).show()
     }
 

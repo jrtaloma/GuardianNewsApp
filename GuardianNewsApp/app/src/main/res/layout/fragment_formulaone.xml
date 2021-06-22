@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="56dp"
-    tools:context=".ui.sport.SportFragment">
+    tools:context=".ui.formulaone.FormulaOneFragment">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/sport_floatingActionButton"
+        android:id="@+id/formulaone_floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
@@ -21,20 +21,20 @@
 
     <!--Swipe Refresh Layout -->
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/sport_refresh_layout"
+        android:id="@+id/formulaone_refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="56dp">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/sport_list_recycler_view"
+            android:id="@+id/formulaone_list_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <SearchView
-        android:id="@+id/sport_search_view"
+        android:id="@+id/formulaone_search_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -42,6 +42,6 @@
         android:queryHint="@string/search_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sport_refresh_layout" />
+        app:layout_constraintTop_toTopOf="@+id/formulaone_refresh_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

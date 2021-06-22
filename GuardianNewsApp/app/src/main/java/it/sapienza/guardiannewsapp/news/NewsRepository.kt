@@ -28,10 +28,10 @@ class NewsRepository(adapter: NewsAdapter) : NewsCRUD {
         .build()
         .create(NewsWebService::class.java)
 
-    override fun getAll(section: String): Boolean {
+    override fun getAll(tag: String): Boolean {
         GlobalScope.launch(Dispatchers.IO) {
             try {
-                val response = proxy.getNews(section, API_KEY)
+                val response = proxy.getNews(tag, "newest", API_KEY)
                 if (response.isSuccessful) {
                     data.clear()
                     total = response.body()!!.response.total
@@ -66,10 +66,10 @@ class NewsRepository(adapter: NewsAdapter) : NewsCRUD {
         return true
     }
 
-    override fun search(section: String, query: String): Boolean {
+    override fun search(tag: String, query: String): Boolean {
         GlobalScope.launch(Dispatchers.IO) {
             try {
-                val response = proxy.getQueryResults(section, query, API_KEY)
+                val response = proxy.getQueryResults(tag, query, "newest", API_KEY)
                 if (response.isSuccessful) {
                     data.clear()
                     total = response.body()!!.response.total
@@ -104,7 +104,7 @@ class NewsRepository(adapter: NewsAdapter) : NewsCRUD {
         return true
     }
 
-    override fun getAllNext(section: String): Boolean {
+    override fun getAllNext(tag: String): Boolean {
         if (currentPage == total) {
             Log.i("info", "All results retrieved")
             return false
@@ -113,9 +113,9 @@ class NewsRepository(adapter: NewsAdapter) : NewsCRUD {
         GlobalScope.launch(Dispatchers.IO) {
             try {
                 val response: Response<NewsList> = if (lastQuery == "")
-                    proxy.getNextNews(section, currentPage+1, API_KEY)
+                    proxy.getNextNews(tag, currentPage+1, "newest", API_KEY)
                 else
-                    proxy.getNextQueryResults(section, currentPage+1, lastQuery, API_KEY)
+                    proxy.getNextQueryResults(tag, currentPage+1, lastQuery, "newest", API_KEY)
                 if (response.isSuccessful) {
                     total = response.body()!!.response.total
                     currentPage = response.body()!!.response.currentPage

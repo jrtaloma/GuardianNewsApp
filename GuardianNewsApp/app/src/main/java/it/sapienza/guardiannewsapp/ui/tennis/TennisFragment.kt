@@ -1,4 +1,4 @@
-package it.sapienza.guardiannewsapp.ui.politics
+package it.sapienza.guardiannewsapp.ui.tennis
 
 import android.content.Intent
 import android.os.Bundle
@@ -16,7 +16,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import it.sapienza.guardiannewsapp.*
 import it.sapienza.guardiannewsapp.news.News
 import it.sapienza.guardiannewsapp.news.NewsAdapter
-import kotlinx.android.synthetic.main.fragment_politics.*
+import kotlinx.android.synthetic.main.fragment_tennis.*
 
 // https://guides.codepath.com/android/using-the-recyclerview
 // https://www.geeksforgeeks.org/how-to-implement-swipe-down-to-refresh-in-android-using-android-studio/
@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.fragment_politics.*
 // https://medium.com/androiddevelopers/viewmodels-a-simple-example-ed5ac416317e
 // https://betterprogramming.pub/everything-to-understand-about-viewmodel-400e8e637a58
 
-class PoliticsFragment : Fragment() {
+class TennisFragment : Fragment() {
 
     private lateinit var googleIdToken: String
     private lateinit var googleEmail: String
@@ -45,7 +45,7 @@ class PoliticsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_politics, container, false)
+        return inflater.inflate(R.layout.fragment_tennis, container, false)
     }
 
     // populate the views now that the layout has been inflated
@@ -57,17 +57,17 @@ class PoliticsFragment : Fragment() {
         googleIdToken = viewModel.googleIdToken
         googleEmail = viewModel.googleEmail
 
-        if (viewModel.politicsNewsAdapter != null) {
+        if (viewModel.tennisNewsAdapter != null) {
             Log.i("info", "Getting NewsAdapter from SharedViewModel")
-            adp = viewModel.politicsNewsAdapter!!
+            adp = viewModel.tennisNewsAdapter!!
             adp.setOnItemClicked { loadWebPage(it) }
             adp.setOnItemLongClicked { createFavorite(it) }
         } else {
-            adp = NewsAdapter(POLITICS, { loadWebPage(it) }, { createFavorite(it) } )
-            viewModel.politicsNewsAdapter = adp
+            adp = NewsAdapter(TENNIS, { loadWebPage(it) }, { createFavorite(it) } )
+            viewModel.tennisNewsAdapter = adp
         }
 
-        politics_list_recycler_view.apply {
+        tennis_list_recycler_view.apply {
             // set a LinearLayoutManager to position items
             layoutManager = LinearLayoutManager(activity)
             // set the custom adapter to populate items
@@ -77,11 +77,11 @@ class PoliticsFragment : Fragment() {
         }
 
         // set refresh event listener
-        swipeRefreshLayout = view.findViewById(R.id.politics_refresh_layout)
+        swipeRefreshLayout = view.findViewById(R.id.tennis_refresh_layout)
         swipeRefreshLayout.setOnRefreshListener { refreshContent() }
 
         // set search event listener
-        politics_search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        tennis_search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 searchContent(query!!)
                 return false
@@ -92,26 +92,26 @@ class PoliticsFragment : Fragment() {
         })
 
         // set floating action button listener
-        politics_floatingActionButton.setOnClickListener {
+        tennis_floatingActionButton.setOnClickListener {
             loadNextContent()
         }
     }
 
     private fun refreshContent() {
         adp.getAll()
-        viewModel.politicsNewsAdapter = adp
+        viewModel.tennisNewsAdapter = adp
         swipeRefreshLayout.isRefreshing = false
     }
 
     private fun searchContent(query: String) {
         adp.search(query)
-        viewModel.politicsNewsAdapter = adp
+        viewModel.tennisNewsAdapter = adp
         Toast.makeText(activity, "Found results", Toast.LENGTH_SHORT).show()
     }
 
     private fun loadNextContent() {
         adp.getAllNext()
-        viewModel.politicsNewsAdapter = adp
+        viewModel.tennisNewsAdapter = adp
         Toast.makeText(activity, "More results", Toast.LENGTH_SHORT).show()
     }
 

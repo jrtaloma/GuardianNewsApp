@@ -1,4 +1,4 @@
-package it.sapienza.guardiannewsapp.ui.business
+package it.sapienza.guardiannewsapp.ui.formulaone
 
 import android.content.Intent
 import android.os.Bundle
@@ -16,7 +16,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import it.sapienza.guardiannewsapp.*
 import it.sapienza.guardiannewsapp.news.News
 import it.sapienza.guardiannewsapp.news.NewsAdapter
-import kotlinx.android.synthetic.main.fragment_business.*
+import kotlinx.android.synthetic.main.fragment_formulaone.*
 
 // https://guides.codepath.com/android/using-the-recyclerview
 // https://www.geeksforgeeks.org/how-to-implement-swipe-down-to-refresh-in-android-using-android-studio/
@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.fragment_business.*
 // https://medium.com/androiddevelopers/viewmodels-a-simple-example-ed5ac416317e
 // https://betterprogramming.pub/everything-to-understand-about-viewmodel-400e8e637a58
 
-class BusinessFragment : Fragment() {
+class FormulaOneFragment : Fragment() {
 
     private lateinit var googleIdToken: String
     private lateinit var googleEmail: String
@@ -45,7 +45,7 @@ class BusinessFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_business, container, false)
+        return inflater.inflate(R.layout.fragment_formulaone, container, false)
     }
 
     // populate the views now that the layout has been inflated
@@ -57,17 +57,17 @@ class BusinessFragment : Fragment() {
         googleIdToken = viewModel.googleIdToken
         googleEmail = viewModel.googleEmail
 
-        if (viewModel.businessNewsAdapter != null) {
+        if (viewModel.formulaOneNewsAdapter != null) {
             Log.i("info", "Getting NewsAdapter from SharedViewModel")
-            adp = viewModel.businessNewsAdapter!!
+            adp = viewModel.formulaOneNewsAdapter!!
             adp.setOnItemClicked { loadWebPage(it) }
             adp.setOnItemLongClicked { createFavorite(it) }
         } else {
-            adp = NewsAdapter(BUSINESS, { loadWebPage(it) }, { createFavorite(it) } )
-            viewModel.businessNewsAdapter = adp
+            adp = NewsAdapter(FORMULA_ONE, { loadWebPage(it) }, { createFavorite(it) } )
+            viewModel.formulaOneNewsAdapter = adp
         }
 
-        business_list_recycler_view.apply {
+        formulaone_list_recycler_view.apply {
             // set a LinearLayoutManager to position items
             layoutManager = LinearLayoutManager(activity)
             // set the custom adapter to populate items
@@ -77,11 +77,11 @@ class BusinessFragment : Fragment() {
         }
 
         // set refresh event listener
-        swipeRefreshLayout = view.findViewById(R.id.business_refresh_layout)
+        swipeRefreshLayout = view.findViewById(R.id.formulaone_refresh_layout)
         swipeRefreshLayout.setOnRefreshListener { refreshContent() }
 
         // set search event listener
-        business_search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        formulaone_search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 searchContent(query!!)
                 return false
@@ -92,26 +92,26 @@ class BusinessFragment : Fragment() {
         })
 
         // set floating action button listener
-        business_floatingActionButton.setOnClickListener {
+        formulaone_floatingActionButton.setOnClickListener {
             loadNextContent()
         }
     }
 
     private fun refreshContent() {
         adp.getAll()
-        viewModel.businessNewsAdapter = adp
+        viewModel.formulaOneNewsAdapter = adp
         swipeRefreshLayout.isRefreshing = false
     }
 
     private fun searchContent(query: String) {
         adp.search(query)
-        viewModel.businessNewsAdapter = adp
+        viewModel.formulaOneNewsAdapter = adp
         Toast.makeText(activity, "Found results", Toast.LENGTH_SHORT).show()
     }
 
     private fun loadNextContent() {
         adp.getAllNext()
-        viewModel.businessNewsAdapter = adp
+        viewModel.formulaOneNewsAdapter = adp
         Toast.makeText(activity, "More results", Toast.LENGTH_SHORT).show()
     }
 

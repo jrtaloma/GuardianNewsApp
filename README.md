@@ -32,7 +32,7 @@ The user can save an item from Formula 1, Tennis, Cycling and Share in Favorites
 
 
 ### Webpage
-Click an item in the homepage, read the article and share it by inserting the email of a subscribed user.
+Click an item in the homepage, read the article (optionally in browser) and share it by inserting the email of a subscribed user.
 
 <img src="https://github.com/jrtaloma/GuardianNewsApp/blob/main/screens/webpage.jpg" width="200">
 

@@ -85,12 +85,12 @@ class ShareRepository(context: Context, adapter: ShareAdapter, googleEmail: Stri
 
             builder = Notification.Builder(c, CHANNEL_ID)
                 .setSmallIcon(it.sapienza.sportnewsapp.R.drawable.share_colored)
-                .setContentTitle("Guardian News App")
+                .setContentTitle("Sport News App")
                 .setContentText("News by "+email)
         } else {
             builder = Notification.Builder(c)
                 .setSmallIcon(it.sapienza.sportnewsapp.R.drawable.share_colored)
-                .setContentTitle("Guardian News App")
+                .setContentTitle("Sport News App")
                 .setContentText("News by "+email)
         }
         notificationManager.notify(NOTIFICATION_ID, builder.build())

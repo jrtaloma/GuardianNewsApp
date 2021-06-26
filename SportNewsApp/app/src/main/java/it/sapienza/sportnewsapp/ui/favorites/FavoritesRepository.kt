@@ -52,7 +52,7 @@ class FavoritesRepository(adapter: FavoritesAdapter, googleIdToken: String) : Fa
                     var news: News
                     for (i in 0 until results.size) {
                         val date = results[i].webPublicationDate.subSequence(0, 10).toString()
-                        val time = results[i].webPublicationDate.subSequence(11, 19).toString()
+                        val time = results[i].webPublicationDate.subSequence(11, 20).toString()
                         news = News(results[i].id, date+" "+time, results[i].webTitle, results[i].webUrl)
                         data[i] = news
                         Log.i("info", news.toString())

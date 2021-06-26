@@ -1,9 +1,9 @@
-# GuardianNewsApp
+# Sport News App
 Project for Mobile and Cloud Computing's Course 2020-2021 at Sapienza Università di Roma.
 
 
 ## Abstract
-Guardian News App is an Android mobile application for browsing and searching [The Guardian](https://www.theguardian.com/international)'s news about Formula One, tennis and cycling, saving articles in a list of favorites and sharing them with other users. A Google account is required to interact with the application (Android Lollipop 5.0 at least).
+Sport News App is an Android mobile application for browsing and searching [The Guardian](https://www.theguardian.com/international)'s news about Formula One, tennis and cycling, saving articles in a list of favorites and sharing them with other users. A Google account is required to interact with the application (Android Lollipop 5.0 at least).
 
 
 ## Tools

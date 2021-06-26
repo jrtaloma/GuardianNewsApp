@@ -98,6 +98,23 @@ class Server(Resource):
         return {'error': True}, 403
 
 
+    # Delete all records in news
+    @app.route(PATH+'deletenews', methods=['DELETE'])
+    def deleteNews():
+        # TokenID verification
+        if 'tokenID' in request.headers:
+            userid, _ = modules.checkTokenID(request.headers['tokenID'])
+            if userid != "":
+                connection = modules.get_db_connection(DATABASE)
+                news = connection.execute('DELETE FROM news;').fetchall()
+                connection.commit()
+                connection.close()
+
+                return {'error': False}, 200
+
+        return {'error': True}, 403
+
+
     # Every valid Google user can get its favorites stored on server:
     # users not registered yet will get 0 favorites.
     @app.route(PATH+'favorites', methods=['GET'])

@@ -4,6 +4,8 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.InputType
 import android.util.Log
 import android.view.Menu
@@ -88,12 +90,18 @@ class WebpageShareActivity : AppCompatActivity() {
         // set refresh event listener
         webpage_refresh_layout.setOnRefreshListener { refreshContent() }
 
-        web_view.loadUrl(webUrl!!)
+        poll()
     }
 
     private fun refreshContent() {
         web_view.loadUrl(webUrl!!)
         webpage_refresh_layout.isRefreshing = false
+    }
+
+    private fun poll() {
+        web_view.loadUrl(webUrl!!)
+        Log.i("info", "Refreshed WebView")
+        Handler(Looper.myLooper()!!).postDelayed({ poll() }, POLLING_TIME)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

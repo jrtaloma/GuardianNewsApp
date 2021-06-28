@@ -112,7 +112,6 @@ class FormulaOneFragment : Fragment() {
     private fun loadNextContent() {
         adp.getAllNext()
         viewModel.formulaOneNewsAdapter = adp
-        Toast.makeText(activity, "More results", Toast.LENGTH_SHORT).show()
     }
 
     private fun loadWebPage(news: News) {

@@ -112,7 +112,6 @@ class TennisFragment : Fragment() {
     private fun loadNextContent() {
         adp.getAllNext()
         viewModel.tennisNewsAdapter = adp
-        Toast.makeText(activity, "More results", Toast.LENGTH_SHORT).show()
     }
 
     private fun loadWebPage(news: News) {

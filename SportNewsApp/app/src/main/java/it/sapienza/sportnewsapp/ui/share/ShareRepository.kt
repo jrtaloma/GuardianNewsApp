@@ -3,7 +3,10 @@ package it.sapienza.sportnewsapp.ui.share
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.util.Log
 import com.google.firebase.database.*
@@ -48,7 +51,7 @@ class ShareRepository(context: Context, adapter: ShareAdapter, googleEmail: Stri
                 finally {
                     adp.notifyDataSetChanged()
                     if (data.size > size) {
-                        data[0]?.let { showNotification(it.sender, it.webTitle) }
+                        data[0]?.let { showNotification(it.sender, it.webTitle, it.webUrl) }
                     }
                     size = data.size
                 }
@@ -76,24 +79,32 @@ class ShareRepository(context: Context, adapter: ShareAdapter, googleEmail: Stri
         return data.size
     }
 
-    private fun showNotification(email: String, title: String) {
+    private fun showNotification(email: String, title: String, url: String) {
+        val intent = Intent(Intent.ACTION_VIEW).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            data = Uri.parse(url)
+        }
+        val pendingIntent: PendingIntent = PendingIntent.getActivity(c, 0, intent, 0)
         val notificationManager: NotificationManager = c.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val builder: Notification.Builder
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val notificationChannel = NotificationChannel(CHANNEL_ID, CHANNEL_DESCRIPTION, NotificationManager.IMPORTANCE_HIGH)
             notificationManager.createNotificationChannel(notificationChannel)
-
             builder = Notification.Builder(c, CHANNEL_ID)
                 .setSmallIcon(it.sapienza.sportnewsapp.R.drawable.share_colored)
                 .setShowWhen(true)
                 .setContentTitle(email)
                 .setStyle(Notification.BigTextStyle().bigText(title))
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
         } else {
             builder = Notification.Builder(c)
                 .setSmallIcon(it.sapienza.sportnewsapp.R.drawable.share_colored)
                 .setShowWhen(true)
                 .setContentTitle(email)
                 .setStyle(Notification.BigTextStyle().bigText(title))
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
         }
         notificationManager.notify(NOTIFICATION_ID, builder.build())
     }

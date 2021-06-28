@@ -38,6 +38,6 @@ Click an item in the homepage, read the article (optionally in browser) and shar
 
 
 ### Notification
-The receiver will find a new item on top of the share list.
+The receiver will find a new item on top of the share list. Click on the notification to read the news in the browser.
 
 <img src="https://github.com/jrtaloma/GuardianNewsApp/blob/main/screens/notification.jpg" width="200">

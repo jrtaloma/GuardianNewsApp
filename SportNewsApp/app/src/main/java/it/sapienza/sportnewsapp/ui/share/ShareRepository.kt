@@ -48,7 +48,7 @@ class ShareRepository(context: Context, adapter: ShareAdapter, googleEmail: Stri
                 finally {
                     adp.notifyDataSetChanged()
                     if (data.size > size) {
-                        data[0]?.let { showNotification(it.sender) }
+                        data[0]?.let { showNotification(it.sender, it.webTitle) }
                     }
                     size = data.size
                 }
@@ -76,7 +76,7 @@ class ShareRepository(context: Context, adapter: ShareAdapter, googleEmail: Stri
         return data.size
     }
 
-    private fun showNotification(email: String) {
+    private fun showNotification(email: String, title: String) {
         val notificationManager: NotificationManager = c.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val builder: Notification.Builder
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -85,13 +85,15 @@ class ShareRepository(context: Context, adapter: ShareAdapter, googleEmail: Stri
 
             builder = Notification.Builder(c, CHANNEL_ID)
                 .setSmallIcon(it.sapienza.sportnewsapp.R.drawable.share_colored)
-                .setContentTitle("Sport News App")
-                .setContentText("News by "+email)
+                .setShowWhen(true)
+                .setContentTitle(email)
+                .setStyle(Notification.BigTextStyle().bigText(title))
         } else {
             builder = Notification.Builder(c)
                 .setSmallIcon(it.sapienza.sportnewsapp.R.drawable.share_colored)
-                .setContentTitle("Sport News App")
-                .setContentText("News by "+email)
+                .setShowWhen(true)
+                .setContentTitle(email)
+                .setStyle(Notification.BigTextStyle().bigText(title))
         }
         notificationManager.notify(NOTIFICATION_ID, builder.build())
     }

@@ -28,6 +28,8 @@ From left to right: Formula 1, Tennis, Cycling, Favorites, Share. Search bar for
 
 The user can save an item from Formula 1, Tennis, Cycling and Share in Favorites by long clicking it, as well as for deleting it.
 
+Events with live commentary are highlighted in red.
+
 <img src="https://github.com/jrtaloma/GuardianNewsApp/blob/main/screens/homepage.jpg" width="200">
 
 

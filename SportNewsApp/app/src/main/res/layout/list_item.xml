@@ -7,10 +7,20 @@
     android:padding="16dp">
 
     <TextView
+        android:id="@+id/list_livestatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:text=""
+        android:textSize="0sp"
+        android:textStyle="bold"
+        android:textColor="#F00" />
+
+    <TextView
         android:id="@+id/list_webPublicationDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
+        android:layout_gravity="end"
         android:text="TextView"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -19,7 +29,7 @@
         android:id="@+id/list_webTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
+        android:layout_gravity="start"
         android:text="TextView"
         android:textSize="20sp" />
 

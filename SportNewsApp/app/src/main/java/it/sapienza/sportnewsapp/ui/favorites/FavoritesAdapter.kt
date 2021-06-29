@@ -4,11 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import it.sapienza.sportnewsapp.news.News
-import it.sapienza.sportnewsapp.news.NewsViewHolder
 
 // https://oozou.com/blog/a-better-way-to-handle-click-action-in-a-recyclerview-item-60
 
-class FavoritesAdapter(googleIdToken: String, onItemClicked: (News) -> Unit, onItemLongClicked: (News) -> Boolean) : RecyclerView.Adapter<NewsViewHolder>() {
+class FavoritesAdapter(googleIdToken: String, onItemClicked: (News) -> Unit, onItemLongClicked: (News) -> Boolean) : RecyclerView.Adapter<FavoriteViewHolder>() {
 
     private val tokenID: String = googleIdToken
     private var onItemClicked = onItemClicked
@@ -27,9 +26,9 @@ class FavoritesAdapter(googleIdToken: String, onItemClicked: (News) -> Unit, onI
         repository.getAll()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return NewsViewHolder(
+        return FavoriteViewHolder(
             inflater,
             parent,
             {
@@ -43,7 +42,7 @@ class FavoritesAdapter(googleIdToken: String, onItemClicked: (News) -> Unit, onI
         )
     }
 
-    override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
         val news: News = repository.read(position)
         holder.bind(news)
     }
